@@ -5,19 +5,18 @@ import re
 import base64
 import binascii
 from typing import Tuple, TypeVar
-
-from .auth import Auth
 from models.user import User
+from .auth import Auth
+
 
 
 class BasicAuth(Auth):
-    """Basic authentication class.
+    """adfhsdtuturtuureu
     """
     def extract_base64_authorization_header(
             self,
             authorization_header: str) -> str:
-        """Extracts the Base64 part of the Authorization header
-        for a Basic Authentication.
+        """eyuetryuteyrtyt ujyrtj
         """
         if type(authorization_header) == str:
             pattern = r'Basic (?P<token>.+)'
@@ -30,7 +29,7 @@ class BasicAuth(Auth):
             self,
             base64_authorization_header: str,
             ) -> str:
-        """Decodes a base64-encoded authorization header.
+        """rujjruyjruyjruyj
         """
         if type(base64_authorization_header) == str:
             try:
@@ -41,13 +40,11 @@ class BasicAuth(Auth):
                 return res.decode('utf-8')
             except (binascii.Error, UnicodeDecodeError):
                 return None
-
     def extract_user_credentials(
             self,
             decoded_base64_authorization_header: str,
             ) -> Tuple[str, str]:
-        """Extracts user credentials from a base64-decoded authorization
-        header that uses the Basic authentication flow.
+        """Eryujyrtujtryuytjut
         """
         if type(decoded_base64_authorization_header) == str:
             pattern = r'(?P<user>[^:]+):(?P<password>.+)'
@@ -60,12 +57,11 @@ class BasicAuth(Auth):
                 password = field_match.group('password')
                 return user, password
         return None, None
-
     def user_object_from_credentials(
             self,
             user_email: str,
             user_pwd: str) -> TypeVar('User'):
-        """Retrieves a user based on the user's authentication credentials.
+        """tjutyujtyutjyujtyujtu
         """
         if type(user_email) == str and type(user_pwd) == str:
             try:
@@ -77,9 +73,8 @@ class BasicAuth(Auth):
             if users[0].is_valid_password(user_pwd):
                 return users[0]
         return None
-
     def current_user(self, request=None) -> TypeVar('User'):
-        """Retrieves the user from a request.
+        """tuytuyjuyktktiu
         """
         auth_header = self.authorization_header(request)
         b64_auth_token = self.extract_base64_authorization_header(auth_header)
